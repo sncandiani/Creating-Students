@@ -12,10 +12,11 @@ const createStudentComponent = () => {
             </aside>
         </div>
     `
-}// Then store a reference to an existing HTML element
+}
+Then store a reference to an existing HTML element
 const studentContainer = document.querySelector("#container")
 
-// Update its contents with the return value of the function
+Update its contents with the return value of the function
 studentContainer.innerHTML = createStudentComponent() */
 
 const students = [
@@ -92,21 +93,21 @@ const students = [
         score: 95
     }
 ]
-//CreateStudentComponent is the function name
-//Name subject info are parameters 
+/* CreateStudentComponent is the function name
+Name subject info are parameters  */
 
-const createStudentComponent = (name, subject, info) => {
+const createStudentComponent = (name, subject, info, score) => {
     return `
-        <div class="student">
+        <div class="student ${score < 60 ? 'failing' : ''}">
             <h1>${name}</h1>
             <section>${subject}</section>
             <aside>${info}</aside>
         </div>
     `
 }
-//Creates a variable studentContainer which holds all students with id container
-//#container is predefined in index.html in the article, without this NOTHING WILL WORK! 
-//INNERHTML WILL NOT KNOW WHERE TO PUT EVERYTHING 
+/* Creates a variable studentContainer which holds all students with id container
+#container is predefined in index.html in the article, without this NOTHING WILL WORK! 
+INNERHTML WILL NOT KNOW WHERE TO PUT EVERYTHING  */
 
 const studentContainer = document.querySelector("#container")
 
@@ -119,7 +120,8 @@ for (let i = 0; i < students.length; i++) {
     studentContainer.innerHTML += createStudentComponent(
         student.name,
         student.subject,
-        student.info
+        student.info, 
+        student.score
     )
 }
 
